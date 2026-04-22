@@ -42,8 +42,9 @@
 
     .identity {
       display: flex;
-      flex-direction: column;
-      gap: 6px;
+      align-items: baseline;
+      gap: 10px;
+      flex-wrap: wrap;
     }
 
     .brand {
@@ -54,12 +55,11 @@
       color: #f3efe7;
     }
 
-    .role {
-      font-size: 11px;
-      line-height: 1.4;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: rgba(243, 239, 231, 0.55);
+    .brand-divider,
+    .brand-two {
+      font-size: 14px;
+      font-weight: 700;
+      color: #f3efe7;
     }
 
     .nav {
@@ -82,28 +82,45 @@
     }
 
     .hero h1 {
-      margin: 0;
+      margin: 0 0 26px;
       max-width: 1080px;
-      font-size: clamp(52px, 8.7vw, 118px);
+      font-size: clamp(64px, 10vw, 150px);
       line-height: 0.92;
-      letter-spacing: -0.055em;
+      letter-spacing: -0.06em;
       font-weight: 700;
       color: #f3efe7;
     }
 
+    .hero-subtitle {
+      max-width: 760px;
+      font-size: clamp(26px, 3vw, 42px);
+      line-height: 1.12;
+      letter-spacing: -0.04em;
+      color: #f3efe7;
+      margin-bottom: 36px;
+      font-weight: 700;
+    }
+
     .hero-copy {
-      max-width: 620px;
-      margin-top: 34px;
-      font-size: 18px;
-      line-height: 1.55;
-      color: rgba(243, 239, 231, 0.7);
+      max-width: 760px;
+      font-size: 22px;
+      line-height: 1.45;
+      color: rgba(243, 239, 231, 0.72);
+    }
+
+    .hero-copy p {
+      margin: 0 0 14px;
+    }
+
+    .hero-copy p:last-child {
+      margin-bottom: 0;
     }
 
     .hero-links {
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
-      margin-top: 34px;
+      margin-top: 38px;
     }
 
     .button {
@@ -233,13 +250,17 @@
       }
 
       .hero h1 {
-        font-size: clamp(44px, 13vw, 74px);
-        line-height: 0.96;
+        font-size: clamp(52px, 18vw, 88px);
+        line-height: 0.95;
+      }
+
+      .hero-subtitle {
+        font-size: 26px;
+        margin-bottom: 24px;
       }
 
       .hero-copy {
-        font-size: 17px;
-        margin-top: 24px;
+        font-size: 18px;
       }
 
       .about {
@@ -270,32 +291,37 @@
   <div class="page">
     <header class="topbar">
       <div class="identity">
-        <div class="brand">Ercin Sadikoglu</div>
-        <div class="role">Executive Creative Director &amp; Screenwriter</div>
+        <div class="brand">ERCIN SADIKOGLU</div>
+        <div class="brand-divider">//</div>
+        <div class="brand-two">Two.</div>
       </div>
 
       <nav class="nav">
-        <a href="#hakkinda">Hakkında</a>
-        <a href="#isler">Seçili İşler</a>
-        <a href="https://www.behance.net/" target="_blank" rel="noopener noreferrer">Behance</a>
+        <a href="#hakkinda">About</a>
+        <a href="#isler">Selected Work</a>
+        <a href="https://www.behance.net/ercinsadikoglu" target="_blank" rel="noopener noreferrer">Behance</a>
       </nav>
     </header>
 
     <section class="hero">
-      <h1>
-        “Two.<br>
-        İki ayrı konu birleşir<br> 
-        çok iyi bir fikir olur.<br>
-      </h1>
+      <h1>Two.</h1>
 
-      <p class="hero-copy">
-        Yirmi yıla yakın bir süredir reklam endüstrisi içinde çalışıyorum.
-        Bu gecesi gündüzü olmayan sektörde, mesleğimi en iyi şekilde yapmaya çalışırken,
-        birden fazla sinema filminin senaryosunu yazdım. Yazmaya da devam ediyorum.
-      </p>
+      <div class="hero-subtitle">
+        Bildiğin iki şey birleşir.<br>
+        Bir fikir olur.
+      </div>
+
+      <div class="hero-copy">
+        <p>
+          Buradaki işler, bir zamanlar aklıma yazdığım iki şeyin birleşmesi.
+        </p>
+        <p>
+          Hiçbirini ben yapmadım. Hepsini biz yaptık.
+        </p>
+      </div>
 
       <div class="hero-links">
-        <a class="button" href="https://www.behance.net/" target="_blank" rel="noopener noreferrer">Behance’te Gör</a>
+        <a class="button" href="https://www.behance.net/ercinsadikoglu" target="_blank" rel="noopener noreferrer">Behance’te Gör</a>
         <a class="button" href="#isler">Seçili İşler</a>
       </div>
     </section>
@@ -304,13 +330,13 @@
       <div class="section-title">Hakkında</div>
       <div class="about">
         <div class="about-copy">
-          Markalar, hikâyeler ve anlatı dünyaları arasında çalışan bir kreatif direktör ve senaristim.
+          Reklam, hikâye ve senaryo arasında çalışıyorum.
           Stratejisi olan, duygusu olan ve akılda kalan işler ilgimi çekiyor.
         </div>
 
         <div class="about-meta">
           İstanbul merkezli.<br>
-          Reklam, senaryo ve yaratıcı geliştirme alanlarında çalışıyorum.<br>
+          Executive Creative Director &amp; Screenwriter.<br>
           Kampanya fikirleri, sunumlar, proje dünyaları ve anlatı yapıları üzerine düşünüyor, yazıyor ve geliştiriyorum.
         </div>
       </div>
@@ -336,8 +362,8 @@
           <div class="work-content">
             <h3>Dizi &amp; Film Geliştirme</h3>
             <p>
-              Orijinal hikâyeler, karakter dünyaları, pitch dosyaları ve sinema diliyle kurulan
-              anlatılar. Duygusu olan, gerilimi olan ve kendi tonunu taşıyan projeler.
+              Orijinal hikâyeler, karakter dünyaları, pitch dosyaları ve sinema diliyle kurulan anlatılar.
+              Duygusu olan, gerilimi olan ve kendi tonunu taşıyan projeler.
             </p>
           </div>
         </div>
@@ -356,7 +382,7 @@
         <div class="work-item">
           <div class="work-type">Arşiv</div>
           <div class="work-content">
-            <h3><a href="https://www.behance.net/" target="_blank" rel="noopener noreferrer">Behance Arşivi ↗</a></h3>
+            <h3><a href="https://www.behance.net/ercinsadikoglu" target="_blank" rel="noopener noreferrer">Behance Arşivi ↗</a></h3>
             <p>
               Daha geniş iş seçkisi, sunumlar ve görsel işler için Behance profilime göz atabilirsiniz.
             </p>
