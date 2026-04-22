@@ -1,88 +1,304 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ercin Sadikoglu</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f5f5f0;
-      color: #111;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      background: #111;
+      color: #f5f1e8;
     }
 
-    .container {
-      max-width: 960px;
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      width: 100%;
+      min-height: 100vh;
+      padding: 32px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 80px;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(245, 241, 232, 0.7);
+    }
+
+    .brand {
+      font-weight: 700;
+      color: #f5f1e8;
+    }
+
+    .nav {
+      display: flex;
+      gap: 24px;
+    }
+
+    .hero {
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 60px 24px;
+      padding: 60px 0 100px;
     }
 
-    h1 {
-      font-size: 56px;
-      line-height: 1;
-      margin-bottom: 12px;
+    .hero h1 {
+      font-size: clamp(56px, 10vw, 132px);
+      line-height: 0.92;
+      margin: 0 0 24px;
+      letter-spacing: -0.05em;
     }
 
-    .subtitle {
-      font-size: 20px;
-      margin-bottom: 40px;
-      color: #444;
+    .hero p {
+      max-width: 720px;
+      font-size: clamp(20px, 2.2vw, 30px);
+      line-height: 1.35;
+      color: rgba(245, 241, 232, 0.82);
+      margin: 0 0 40px;
+    }
+
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .button {
+      padding: 14px 20px;
+      border: 1px solid rgba(245, 241, 232, 0.25);
+      border-radius: 999px;
+      transition: 0.25s ease;
+      font-size: 15px;
+    }
+
+    .button:hover {
+      background: #f5f1e8;
+      color: #111;
+      border-color: #f5f1e8;
     }
 
     .section {
-      margin-top: 56px;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 0 100px;
+      border-top: 1px solid rgba(245, 241, 232, 0.12);
     }
 
-    h2 {
-      font-size: 24px;
-      margin-bottom: 16px;
+    .section-title {
+      font-size: 14px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(245, 241, 232, 0.55);
+      margin-bottom: 28px;
     }
 
-    p {
+    .about {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .about-copy {
+      font-size: 28px;
+      line-height: 1.35;
+      letter-spacing: -0.02em;
+    }
+
+    .about-meta {
+      color: rgba(245, 241, 232, 0.68);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .work-list {
+      display: grid;
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .work-item {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 24px;
+      padding: 22px 0;
+      border-top: 1px solid rgba(245, 241, 232, 0.1);
+    }
+
+    .work-item:last-child {
+      border-bottom: 1px solid rgba(245, 241, 232, 0.1);
+    }
+
+    .work-type {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(245, 241, 232, 0.45);
+      padding-top: 4px;
+    }
+
+    .work-content h3 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      letter-spacing: -0.03em;
+    }
+
+    .work-content p {
+      margin: 0;
+      color: rgba(245, 241, 232, 0.7);
       font-size: 18px;
-      line-height: 1.6;
-      max-width: 720px;
+      line-height: 1.55;
+      max-width: 800px;
     }
 
-    .projects a, .links a {
-      display: inline-block;
-      margin: 10px 16px 10px 0;
-      text-decoration: none;
-      color: #111;
-      border-bottom: 1px solid #111;
-      padding-bottom: 2px;
+    .footer {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px 0 60px;
+      color: rgba(245, 241, 232, 0.45);
+      font-size: 14px;
     }
 
-    .projects a:hover, .links a:hover {
-      opacity: 0.6;
+    @media (max-width: 800px) {
+      .page {
+        padding: 20px;
+      }
+
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+        margin-bottom: 50px;
+      }
+
+      .nav {
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      .about {
+        grid-template-columns: 1fr;
+      }
+
+      .about-copy {
+        font-size: 22px;
+      }
+
+      .work-item {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .work-content h3 {
+        font-size: 24px;
+      }
+
+      .work-content p {
+        font-size: 17px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>ERCIN SADIKOGLU</h1>
-    <div class="subtitle">Executive Creative Director & Screenwriter</div>
+  <div class="page">
+    <div class="topbar">
+      <div class="brand">Ercin Sadikoglu</div>
+      <div class="nav">
+        <a href="#about">About</a>
+        <a href="#work">Selected Work</a>
+        <a href="https://www.behance.net/" target="_blank">Behance</a>
+      </div>
+    </div>
 
-    <div class="section">
-      <h2>About</h2>
+    <section class="hero">
+      <h1>
+        Executive<br />
+        Creative Director<br />
+        & Screenwriter
+      </h1>
       <p>
-        I work across advertising, storytelling, and screenwriting.
-        This site is a selected view of projects, ideas, and creative work.
+        I work across advertising, storytelling, branded ideas, and screenwriting.
+        This is a selected view of projects, creative direction, and narrative thinking.
       </p>
-    </div>
 
-    <div class="section projects">
-      <h2>Selected Work</h2>
-      <a href="#">Project One</a>
-      <a href="#">Project Two</a>
-      <a href="#">Project Three</a>
-    </div>
+      <div class="hero-links">
+        <a class="button" href="https://www.behance.net/" target="_blank">View Behance</a>
+        <a class="button" href="#work">Selected Work</a>
+      </div>
+    </section>
 
-    <div class="section links">
-      <h2>Links</h2>
-      <a href="https://www.behance.net/" target="_blank">Behance</a>
-      <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+    <section class="section" id="about">
+      <div class="section-title">About</div>
+      <div class="about">
+        <div class="about-copy">
+          Creative director and writer working at the intersection of brands,
+          stories, character, and culture.
+        </div>
+        <div class="about-meta">
+          Based in Istanbul.<br />
+          Working across advertising, scripts, presentations, and creative development.<br />
+          Interested in sharp storytelling, emotional tension, and memorable ideas.
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="work">
+      <div class="section-title">Selected Work</div>
+
+      <div class="work-list">
+        <div class="work-item">
+          <div class="work-type">Advertising</div>
+          <div class="work-content">
+            <h3>Brand Platforms & Campaign Thinking</h3>
+            <p>
+              Creative direction, campaign platforms, launch ideas, and storytelling systems
+              built for brands looking for both sharp strategy and memorable execution.
+            </p>
+          </div>
+        </div>
+
+        <div class="work-item">
+          <div class="work-type">Screenwriting</div>
+          <div class="work-content">
+            <h3>Series & Feature Development</h3>
+            <p>
+              Original projects, scripted formats, pitch worlds, and character-driven narratives
+              developed with cinematic tone and strong emotional engines.
+            </p>
+          </div>
+        </div>
+
+        <div class="work-item">
+          <div class="work-type">Portfolio</div>
+          <div class="work-content">
+            <h3><a href="https://www.behance.net/" target="_blank">Behance Archive ↗</a></h3>
+            <p>
+              A broader selection of visual work, presentations, and creative output can be found on Behance.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      Ercin Sadikoglu
     </div>
   </div>
 </body>
